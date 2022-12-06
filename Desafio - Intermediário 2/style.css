@@ -1,0 +1,235 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --ff-heading: 'Staatliches', cursive;
+  --ff-body: 'Palanquin', sans-serif;
+  --ff-body-web: 'Roboto', sans-serif;
+  
+  --bg-color-first: hsl(218, 17%, 62%);
+  --bg-color-second: hsl(233, 100%, 97%);
+  --bg-color-heading-first: hsl(275, 18%, 79%);
+  --bg-color-heading-second: hsl(312, 91%, 96%);
+  --color-heading-first: hsla(0, 0%, 100%);
+  --color-heading-second: hsl(232, 17%, 35%);
+  --color-body: hsl(274, 84%, 12%);
+  
+  font-size: 62.5%;
+  --fs-body: 2rem;
+  --fs-body-web:2rem;
+  --fs-heading: 4rem;
+  --fs-heading-web: 4.8rem;
+}
+
+body {
+  width: 100vw;
+  display: flex;
+  align-items: center;
+}
+
+.page {
+  font-family: var(--ff-body);
+  text-align: center;
+  /* min-width: 28rem; */
+  width: 100vw;
+  margin: auto;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+header {
+  background-color: var(--bg-color-first);
+  height: 279px;
+}
+
+header img {
+  width: 13.7rem;
+  height: 13.7;
+  object-fit: contain;
+  margin: 3.2rem auto;
+}
+
+header h1 {
+  font-family: var(--ff-heading);
+  font-size:  var(--fs-heading);
+  font-weight: 400;
+  background-color: var(--bg-color-heading-first);
+  color: var(--color-heading-first);
+  margin-bottom: 5.9rem ;
+  text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+  text-transform: uppercase;
+}
+
+header p {
+  font-size: clamp(1.0rem, 5vw, var(--fs-body));
+  font-weight: 400;
+  color: var(--color-body);
+  line-height: 1.5rem;
+  max-width: 34rem;
+  display: inline-flex;
+  justify-content: center;
+}
+
+main {
+  background-color: var(--bg-color-second);
+  padding: 16.2rem 3.2rem 6rem;
+}
+
+.card-box {
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+}
+
+.card {
+  display: flex;
+  position: relative;
+}
+
+.card img {
+  animation: downtop 700ms;
+  border-radius: 2rem;
+}
+
+.card h2 {
+  font-family: var(--ff-heading);
+  font-size: var(--fs-body);
+  font-weight: 400;
+  background-color: var(--bg-color-heading-second);
+  color: var(--color-heading-second);
+  text-transform: uppercase;
+  
+  position: absolute;
+  width: 11.2rem;
+  height: 3.5rem;
+  right: 1.6rem;
+  top: 1.6rem;
+  border-radius: 2rem;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  animation: topdown 700ms 200ms backwards;
+}
+
+footer {
+  content-visibility: hidden;
+}
+
+@keyframes topdown {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes downtop {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (min-width: 769px) {
+  .page {
+    display: grid;
+    grid-template-columns: 30% 70%;
+
+  }
+
+  header {
+    height: 100vh;
+  }
+
+  header img {
+    width: 21.5rem;
+    height: 16.7;
+  }
+
+  header h1 {
+    font-size: var(--fs-heading-web);
+    line-height: 3.4rem;
+    height: 7rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+
+  header p {
+    font-family: var(--ff-body-web);
+    font-size: var(--fs-body-web);
+    font-weight: 400;
+    line-height: 2rem;
+    color: var(--color-heading-first);
+    margin-left: clamp(1rem, 10%, 5.4rem);
+    margin-right: clamp(1rem, 10%, 5.4rem);
+  }
+
+  main {
+    max-width: 100%;
+    padding: 6.4rem 8.1rem 0;
+  }
+
+
+  .card-box {
+    display: grid;
+    grid-template: 
+    "card1 card2"
+    "card4 card2"
+    "card4 card3";
+    grid-template-columns: 22rem 22rem;
+    justify-content: center;
+    margin-bottom: 5rem;
+  }
+
+  #card1 {
+    grid-area: card1;
+  }
+
+  #card2 {
+    grid-area: card2;
+  }
+
+  #card3 {
+    grid-area: card3;
+  }
+
+  #card4 {
+    grid-area: card4;
+  }
+
+  footer {
+    content-visibility: visible;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 1.4rem;
+    line-height: 2.8rem;
+    color: var(--color-heading-second);
+  }
+
+  a {
+    text-decoration: none;
+    color: var(--color-heading-second);
+    font-weight: 700;
+  }
+}
+
